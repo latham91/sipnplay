@@ -47,7 +47,8 @@ export default function Reservations() {
         Secure your place at our vibrant café and board game haven. Whether
         you're planning a casual meetup or a lively game night with friends,
         reserve your table now to ensure a memorable experience filled with
-        great food, refreshing drinks, and endless fun. <br />
+        great food, refreshing drinks, and endless fun. 🥪🧋
+        <br />
         <br />
         <span className="bg-stone-800 text-stone-50 font-bold px-2">
           Reservations are open for any party size!

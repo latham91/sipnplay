@@ -115,7 +115,7 @@
     @apply transition-all ease-in-out duration-300;
   }
   .margin-y {
-    @apply py-24 max-sm:py-16;
+    @apply py-24 max-sm:py-20;
   }
   .margin-x {
     @apply px-6 lg:px-8 mx-auto max-w-7xl;

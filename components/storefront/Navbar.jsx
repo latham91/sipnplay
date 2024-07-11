@@ -47,7 +47,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-5">
           {navLinks.map((link) => (
             <Link key={link.id} href={link.href} className="group">
-              <p>{link.title}</p>
+              <p className="group-hover:text-[#96b87b] my-transition">
+                {link.title}
+              </p>
+              <div className="h-0.5 w-full bg-transparent group-hover:bg-[#96b87b] my-transition" />
             </Link>
           ))}
         </div>
@@ -63,7 +66,9 @@ export default function Navbar() {
             <nav className="grid gap-4 text-lg mt-5">
               {navLinks.map((link) => (
                 <Link key={link.id} href={link.href} className="group">
-                  <p>{link.title}</p>
+                  <p className="group-hover:text-[#96b87b] my-transition">
+                    {link.title}
+                  </p>
                 </Link>
               ))}
             </nav>

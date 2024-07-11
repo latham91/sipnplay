@@ -1,4 +1,4 @@
-export default function Home() {
+export default function StorefrontHomePage() {
   return (
     <div>
       <h1>Homepage</h1>

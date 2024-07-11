@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <div className="relative z-20 bg-neutral-50">
+    <div className="relative z-20 bg-stone-50">
       <div className="margin-x margin-y grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* 🔻 Image */}
         <div className="relative">
@@ -20,10 +20,10 @@ export default function About() {
         {/* 🔻 Title + description + buttons */}
         <div className="flex flex-col gap-16 items-start">
           <div className="flex flex-col items-start">
-            <h1 className="relative z-20 bg-stone-900 text-stone-50 px-4 md:px-6 py-2 -mb-2">
+            <h1 className="relative z-20 bg-stone-900 text-stone-50 px-4 md:px-6 py-2 -mb-2 hover:scale-110 my-transition">
               But how
             </h1>
-            <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2">
+            <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2 hover:scale-110 my-transition">
               it works?!{" "}
               <span className="text-5xl max-md:text-4xl max-sm:text-3xl">
                 🤔
@@ -33,7 +33,7 @@ export default function About() {
           <p className="">
             Come on in with your friends and family and play boardgames from our
             collection of over 500+ games!{" "}
-            <span className="font-bold">
+            <span className="font-bold text-stone-600">
               Just $10 a person for 3 hours of gameplay.
             </span>{" "}
             ($12 a person Friday-Sunday and Holidays)
@@ -45,8 +45,8 @@ export default function About() {
           </p>
           <div className="flex gap-3">
             <Button variant="default" asChild>
-              <Link href="https://www.exploretock.com/sipnplay" target="_blank">
-                Book now
+              <Link href="/boardgames" target="_blank">
+                Boardgames
               </Link>
             </Button>
             <Button variant="green" asChild>

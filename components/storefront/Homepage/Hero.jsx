@@ -33,8 +33,8 @@ export default function Hero() {
             </Link>
           </Button>
           <Button variant="secondary" asChild>
-            <Link href="/boardgames" target="_blank">
-              Boardgames
+            <Link href="/events" target="_blank">
+              Upcoming Events
             </Link>
           </Button>
         </div>

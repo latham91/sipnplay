@@ -26,9 +26,11 @@ model Event {
   id String @id @default(uuid())
   title String
   subtitle String
-  date DateTime
+  date String
   startTime String
   endTime String
   description String
   image String @default("/defaultimg.png")
+
+  createdAt DateTime @default(now())
 }

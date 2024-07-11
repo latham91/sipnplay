@@ -1,10 +1,23 @@
 import EventCard from "@/components/dashboard/EventCard";
 import Header from "@/components/dashboard/Header";
 import { Button } from "@/components/ui/button";
+import prisma from "@/lib/prisma";
 import { CirclePlusIcon } from "lucide-react";
 import Link from "next/link";
 
-export default function EventsPage() {
+async function getEvents() {
+  const data = await prisma.event.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+}
+
+export default async function EventsPage() {
+  const events = await getEvents();
+
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
@@ -18,8 +31,11 @@ export default function EventsPage() {
       </div>
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-4 lg:grid-cols-4">
-        <EventCard />
-        <EventCard />
+        {events.length > 0 ? (
+          events.map((event) => <EventCard key={event.id} event={event} />)
+        ) : (
+          <p className="text-2xl">No events found</p>
+        )}
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export default function About() {
             width={500}
             height={500}
             draggable={false}
-            className="relative z-[1] object-cover h-[400px] lg:h-[550px] w-full hover:rotate-3 my-transition opacity-80 hover:opacity-100"
+            className="relative z-[1] object-cover h-[400px] lg:h-[550px] w-full hover:rotate-3 my-transition opacity-90 hover:opacity-100"
           />
           <div className="absolute top-0 left-0 h-[400px] lg:h-[550px] w-full bg-[#dde9d3]" />
         </div>

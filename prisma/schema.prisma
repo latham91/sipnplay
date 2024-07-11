@@ -19,6 +19,7 @@ model User {
   firstName String
   lastName String
   avatar String @default("https://www.gravatar.com/avatar/?d=wavatar")
+
   createdAt DateTime @default(now())
 }
 
@@ -31,6 +32,40 @@ model Event {
   endTime String
   description String
   image String @default("/defaultimg.png")
+
+  createdAt DateTime @default(now())
+}
+
+model MenuItem {
+  id String @id @default(uuid())
+  name String
+  description String
+  prices Price[]
+  additionals Additional[]
+  category String
+
+  createdAt DateTime @default(now())
+}
+
+model Price {
+  id String @id @default(uuid())
+  size String
+  type String
+  price Float
+
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId String
+
+  createdAt DateTime @default(now())
+}
+
+model Additional {
+  id String @id @default(uuid())
+  name String
+  price Float
+
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId String
 
   createdAt DateTime @default(now())
 }

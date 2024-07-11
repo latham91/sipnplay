@@ -19,11 +19,11 @@ export default function EventAddPage() {
     const file = e.target.files[0];
 
     if (file) {
+      // Image preview logic
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
         setImageFile(file);
-        console.log(file);
       };
 
       reader.readAsDataURL(file);

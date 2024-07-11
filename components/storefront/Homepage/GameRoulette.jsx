@@ -15,19 +15,21 @@ export default function GameRoulette() {
         hidden gems, our curated collection has something for everyone.{" "}
         <span className="font-bold text-stone-600">
           From timeless classics that never go out of style to hidden gems
-          waiting to be discovered, there's something for everyone.
+          waiting to be discovered, there's something for everyone. 🥳
         </span>
         <br />
         <br /> Find the perfect game for your next gathering, be it a casual
         get-together or a more competitive event.{" "}
         <span className="font-bold text-stone-600">
           Explore, play, and enjoy an unforgettable experience with friends and
-          family!
-        </span>
+          family! 🎯
+        </span>{" "}
+        <br /> <br />
       </>
     ),
     href: "/boardgames",
     image: "/SipNPlay 8.png",
+    btn: "Check our Boardgames",
   };
 
   return (

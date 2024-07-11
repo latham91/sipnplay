@@ -15,7 +15,7 @@ export default function About() {
             draggable={false}
             className="relative z-[1] object-cover h-[400px] lg:h-[550px] w-full hover:rotate-3 my-transition opacity-90 hover:opacity-100"
           />
-          <div className="absolute top-0 left-0 h-[400px] lg:h-[550px] w-full bg-[#dde9d3]" />
+          <div className="absolute top-0 left-0 h-[400px] lg:h-[550px] w-full bg-stone-800" />
         </div>
         {/* 🔻 Title + description + buttons */}
         <div className="flex flex-col gap-16 items-start">

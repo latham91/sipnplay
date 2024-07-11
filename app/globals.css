@@ -73,7 +73,7 @@
 
 @layer base {
   body {
-    @apply bg-stone-900;
+    @apply bg-stone-50;
   }
   h1,
   h2,
@@ -153,4 +153,5 @@ body {
       transparent 50%
     );
   background-size: 4em 4em;
+  background-color: #1c1917;
 }

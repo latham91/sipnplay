@@ -139,6 +139,17 @@ export default function Reservations() {
       <div className="margin-x margin-y">
         <CardCTA data={CTA} />
       </div>
+      {/* 🔻 SECTION: Google Maps */}
+      <div className="mt-6 md:mt-14">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.265051116657!2d-73.98952568699764!3d40.668128571280995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b963c296a77%3A0x33cab105836ef465!2sSip%20%26%20Play!5e0!3m2!1sen!2suk!4v1720634304933!5m2!1sen!2suk"
+          width="600"
+          height="450"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          className="w-full"
+        ></iframe>
+      </div>
     </div>
   );
 }

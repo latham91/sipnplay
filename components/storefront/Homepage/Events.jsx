@@ -1,3 +1,3 @@
 export default function Events() {
-  return <>Events component</>;
+  return <div className="margin-x margin-y">Events component</div>;
 }

@@ -36,12 +36,12 @@ export default function About() {
             <span className="font-bold text-stone-600">
               Just $10 a person for 3 hours of gameplay.
             </span>{" "}
-            ($12 a person Friday-Sunday and Holidays)
+            ($12 a person Friday-Sunday and Holidays) 🥳
             <br />
-            <br /> Play while enjoying bubble tea, coffee, beer sandwiches or
-            salads and have a great time! If you want to guarantee a table, you
-            can make a reservation which is $15 a person for 3 hours of
-            gameplay.
+            <br /> Play while enjoying bubble tea, coffee, sandwiches or salads
+            and have a great time! If you want to guarantee a table, you can
+            make a reservation which is $15 a person for 3 hours of gameplay.
+            🥪🧋🥗
           </p>
           <div className="flex gap-3">
             <Button variant="default" asChild>

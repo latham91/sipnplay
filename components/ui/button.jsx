@@ -10,9 +10,9 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-stone-900 text-stone-50 hover:bg-stone-800 transition-all ease-in-out duration-300",
+          "bg-stone-900 text-stone-50 hover:bg-stone-900/90 transition-all ease-in-out duration-300",
         green:
-          "bg-[#dde9d3] hover:bg-[#bbc7b2] text-stone-900 transition-all ease-in-out duration-300",
+          "bg-[#dde9d3] hover:bg-[#d7ecc6] text-stone-900 transition-all ease-in-out duration-300",
         secondary:
           "bg-stone-50/85 hover:bg-stone-100 text-stone-900 transition-all ease-in-out duration-300",
         destructive:

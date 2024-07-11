@@ -6,8 +6,8 @@ export default function Menu() {
   return (
     <div className="relative margin-x margin-y grid grid-cols-1 lg:grid-cols-2 gap-16">
       {/* 🔻 Illustrations and gradient on the footer */}
-      <div className="absolute -top-10 -left-[50%] z-10 w-[200vw] h-[200px] bg-gradient-to-b from-stone-900 to-transparent" />
-      <div className="opacity-100 absolute -top-8 md:-top-28 left-0 w-full flex items-center justify-center gap-14 md:gap-20">
+      <div className="absolute top-0 -left-[50%] z-10 w-[200vw] h-[200px] bg-gradient-to-b from-stone-900 to-transparent" />
+      <div className="opacity-100 absolute -top-8 md:-top-16 left-0 w-full flex items-center justify-center gap-14 md:gap-20">
         <Image
           src="/Dices1.png"
           alt="Boardgame"
@@ -58,14 +58,14 @@ export default function Menu() {
         />
       </div>
       {/* 🔻 Title + description + buttons */}
-      <div className="lg:mt-28 flex flex-col gap-16 items-start order-2 lg:order-1">
+      <div className="lg:mt-36 flex flex-col gap-16 items-start order-2 lg:order-1">
         <div className="flex flex-col items-start">
           <h1 className="relative z-20 bg-stone-50 px-4 md:px-6 py-2 -mb-2 hover:scale-110 my-transition">
             Our tasty
           </h1>
           <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2 hover:scale-110 my-transition">
-            menu
-            <span className="text-5xl max-md:text-4xl max-sm:text-3xl">🧋</span>
+            menu{" "}
+            <span className="text-5xl max-md:text-4xl max-sm:text-3xl">😋</span>
           </h1>
         </div>
         <p className="text-stone-300">
@@ -94,7 +94,7 @@ export default function Menu() {
         </div>
       </div>
       {/* 🔻 Image */}
-      <div className="mt-28 relative order-1 lg:order-2">
+      <div className="mt-28 lg:mt-36 relative order-1 lg:order-2">
         <Image
           src="/SipNPlay 5.png"
           width={500}

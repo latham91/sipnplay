@@ -1,7 +1,14 @@
+import Footer from "@/components/storefront/Footer";
+import Navbar from "@/components/storefront/Navbar";
+
 export default function StoreFrontLayout({ children }) {
   return (
     <div>
-      <main>{children}</main>
+      <main>
+        <Navbar />
+        {children}
+        <Footer />
+      </main>
     </div>
   );
 }

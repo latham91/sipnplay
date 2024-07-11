@@ -1,7 +1,6 @@
-import { Inter } from "next/font/google";
+import Footer from "@/components/storefront/Footer";
+import Navbar from "@/components/storefront/Navbar";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Sip & Play",
@@ -11,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

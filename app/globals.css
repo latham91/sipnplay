@@ -105,7 +105,7 @@
     @apply text-base font-sans text-stone-500 leading-8;
   }
   ::selection {
-    @apply bg-[#dde9d3];
+    @apply bg-[#dde9d3] text-stone-900;
   }
   .absolute-center {
     @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;

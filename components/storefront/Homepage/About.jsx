@@ -6,6 +6,7 @@ export default function About() {
   return (
     <div className="relative z-20 bg-neutral-50">
       <div className="margin-x margin-y grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* 🔻 Image */}
         <div className="relative">
           <Image
             src="/SipNPlay 4.png"
@@ -16,6 +17,7 @@ export default function About() {
           />
           <div className="absolute top-0 left-0 h-[400px] lg:h-[550px] w-full bg-[#dde9d3]" />
         </div>
+        {/* 🔻 Title + description + buttons */}
         <div className="flex flex-col gap-16 items-start">
           <div className="flex flex-col items-start">
             <h1 className="relative z-20 bg-stone-900 text-stone-50 px-4 md:px-6 py-2 -mb-2">

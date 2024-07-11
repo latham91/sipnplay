@@ -98,6 +98,7 @@ export default function Menu() {
       <div className="mt-28 lg:mt-36 relative order-1 lg:order-2">
         <Image
           src="/SipNPlay 5.png"
+          alt="SipNPlay Image"
           width={500}
           height={500}
           draggable={false}

@@ -75,6 +75,7 @@ export default function Reservations() {
         <div className="relative">
           <Image
             src="/SipNPlay 1.png"
+            alt="SipNPlay Image"
             width={500}
             height={500}
             draggable={false}
@@ -100,13 +101,13 @@ export default function Reservations() {
             weekend outing or a midweek break, check out our hours below to find
             the perfect time to visit:
           </p>
-          <p className="-my-6">
-            {time.map((t) => (
-              <p key={t} className="hover:scale-110 my-transition">
-                {t}
+          <div className="-my-6">
+            {time.map((time, i) => (
+              <p key={i} className="hover:scale-110 my-transition">
+                {time}
               </p>
             ))}
-          </p>
+          </div>
           {/* 🔻 Kitchen closing time tag */}
           <div className="flex max-sm:flex-col items-start">
             <div className="bg-stone-900 px-3 h-[36px] flex items-center">
@@ -123,9 +124,9 @@ export default function Reservations() {
       </div>
       {/* 🔻 SECTION: Location */}
       <div className="margin-x py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 items-start">
-        {ContactInfo.map((contact) => (
+        {ContactInfo.map((contact, i) => (
           <div
-            key={contact.text}
+            key={i}
             className="flex flex-col items-start md:items-center md:justify-center gap-4 text-left md:text-center md:hover:scale-110 my-transition"
           >
             <p className="text-xl  bg-[#dde9d3] p-4 rounded-full text-stone-800">
@@ -146,7 +147,7 @@ export default function Reservations() {
           width="600"
           height="450"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
           className="w-full"
         ></iframe>
       </div>

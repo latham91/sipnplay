@@ -10,6 +10,7 @@ export default function About() {
         <div className="relative">
           <Image
             src="/SipNPlay 4.png"
+            alt="SipNPlay Image"
             width={500}
             height={500}
             draggable={false}

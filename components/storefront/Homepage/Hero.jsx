@@ -7,15 +7,17 @@ export default function Hero() {
     <div className="relative margin-x margin-y">
       {/* 🔻 Title + description + buttons */}
       <div className="flex flex-col items-center justify-center gap-12 mb-24 md:mb-36 mt-4 text-center">
-        <span className="text-xl md:text-3xl bg-[#dde9d3] px-4 py-2 -mb-12 relative z-20">
+        <span className="text-xl md:text-3xl bg-[#dde9d3] px-4 py-2 -mb-14 relative z-30 hover:scale-110 my-transition">
           🧋🥪♟️🎯🎲
         </span>{" "}
-        <h1 className="mb-4 leading-[60px] md:leading-[80px]">
-          <span className="bg-stone-50 px-4 relative z-10">Welcome to</span>
-          <br />
-          <span className="bg-[#dde9d3] px-4">Sip & Play!</span>
-          <br />
-        </h1>
+        <div className="flex flex-col items-center">
+          <h1 className="text-8xl max-md:text-7xl max-sm:text-5xl -mb-1 leading-[60px] md:leading-[80px] bg-stone-50 px-4 md:px-6 py-1.5 md:py-3 relative z-20 hover:scale-110 my-transition">
+            Welcome to
+          </h1>
+          <h1 className="text-8xl max-md:text-7xl max-sm:text-5xl leading-[60px] md:leading-[80px] bg-[#dde9d3] px-4 md:px-6 py-1.5 md:py-3 relative z-10 hover:scale-110 my-transition">
+            Sip & Play!
+          </h1>
+        </div>
         <p className="text-xl md:text-2xl text-stone-400 font-bold">
           Sip & Play is a board game cafe where you can enjoy a variety of games
           while sipping on your favorite drink.

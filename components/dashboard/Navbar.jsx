@@ -29,8 +29,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-5">
-          <UserDropdown />
-
           {/* MOBILE NAVIGATION */}
           <Sheet>
             <SheetTrigger asChild>
@@ -49,6 +47,8 @@ export default function Navbar() {
               </nav>
             </SheetContent>
           </Sheet>
+
+          <UserDropdown />
         </div>
       </nav>
     </header>

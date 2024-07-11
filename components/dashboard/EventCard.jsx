@@ -6,10 +6,12 @@ import { Button } from "../ui/button";
 export default function EventCard() {
   return (
     <div className="col-span-1 p-4 bg-white border rounded-lg shadow-md md:col-span-2">
+      {/* CARD IMAGE */}
       <div className="relative h-[250px] mb-3">
         <Image src="/eventplaceholder_1.jpg" alt="Event image" fill className="object-cover w-full h-full rounded-md" />
       </div>
 
+      {/* CARD TITLE & DATE TIME */}
       <div className="pb-3 mb-2 border-b border-dashed border-slate-300">
         <div>
           <h3>Dungeons & Dragons</h3>
@@ -25,6 +27,7 @@ export default function EventCard() {
         </div>
       </div>
 
+      {/* CARD DESCRIPTION */}
       <div>
         <p className="leading-6 line-clamp-4">
           Join us for an epic evening of adventure and strategy in our Dungeons & Dragons event, "The Siege of Dragonspear."
@@ -33,6 +36,7 @@ export default function EventCard() {
         </p>
       </div>
 
+      {/* CARD BUTTON */}
       <div className="mt-4">
         <Button variant="dashboard" className="w-full">
           Manage Event

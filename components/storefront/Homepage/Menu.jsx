@@ -71,13 +71,14 @@ export default function Menu() {
         <p className="text-stone-300">
           Hungry? Thirsty? Dive into our menu packed with delicious food, hot
           drinks, and refreshing bubble teas. Whether you're after a hearty
-          bite, a cosy cuppa, or a fun bubble tea, we've got just what you need.{" "}
+          bite, a cosy cuppa, or a fun bubble tea, we've got just what you need.
+          🥪☕
           <br />
           <br />
           <span className="font-bold text-white">
             Take your time checking out all our tasty choices and enjoy a yummy
             experience in our friendly and welcoming place. It's the perfect
-            spot to relax, unwind, and enjoy some great flavours!
+            spot to relax, unwind, and enjoy some great flavours! 🥗🧋
           </span>
         </p>
         <div className="flex gap-3">

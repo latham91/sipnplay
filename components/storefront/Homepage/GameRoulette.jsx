@@ -1,7 +1,35 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import CardCTA from "./CardCTA";
 
 export default function GameRoulette() {
+  // Bellow is the data I will need to fill out my card that I made as a component
+  // (Created as a component because I intend to use it in other sections on the homepage - if I have time)
+
+  const CTA = {
+    title: "🎯 A to Z Game List",
+    description: (
+      <>
+        Dive into our A to Z list of board games and uncover your next
+        obsession! Whether you're a fan of timeless classics or in search of
+        hidden gems, our curated collection has something for everyone.{" "}
+        <span className="font-bold text-stone-600">
+          From timeless classics that never go out of style to hidden gems
+          waiting to be discovered, there's something for everyone.
+        </span>
+        <br />
+        <br /> Find the perfect game for your next gathering, be it a casual
+        get-together or a more competitive event.{" "}
+        <span className="font-bold text-stone-600">
+          Explore, play, and enjoy an unforgettable experience with friends and
+          family!
+        </span>
+      </>
+    ),
+    href: "/boardgames",
+    image: "/SipNPlay 8.png",
+  };
+
   return (
     <div className="relative z-20 bg-stone-50">
       <div className="margin-x margin-y grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -33,7 +61,7 @@ export default function GameRoulette() {
             <br />
             Press "Play" and let the wheel decide your next adventure. Ask our
             friendly staff for the game and enjoy a fresh, fun experience with
-            your friends!
+            your friends! 🎲
           </p>
           <div className="flex gap-3">
             <Button variant="default" asChild>
@@ -48,6 +76,10 @@ export default function GameRoulette() {
             </Button>
           </div>
         </div>
+      </div>
+      {/* 🔻 CTA to boardgame page */}
+      <div className="margin-x margin-y">
+        <CardCTA data={CTA} />
       </div>
     </div>
   );

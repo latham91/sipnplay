@@ -1,9 +1,22 @@
 import CardUpcomingEvent from "@/components/storefront/Homepage/CardUpcomingEvent";
 import { Button } from "@/components/ui/button";
+import prisma from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Events() {
+async function getEvents() {
+  const data = await prisma.event.findMany({
+    orderBy: {
+      date: "asc",
+    },
+  });
+
+  return data;
+}
+
+export default async function Events() {
+  const events = await getEvents();
+
   // Fake data to use while the backend is not ready
   const fakeData = [
     {
@@ -53,7 +66,7 @@ export default function Events() {
       <header className="relative">
         {/* 🔻 Hero section */}
         <div className="margin-x margin-y">
-          <div className="flex flex-col items-center justify-center gap-12 mb-24 md:mb-36 mt-4 text-center">
+          <div className="flex flex-col items-center justify-center gap-12 mt-4 mb-24 text-center md:mb-36">
             <span className="text-xl md:text-3xl bg-[#dde9d3] px-4 py-2 -mb-14 relative z-30 hover:scale-110 my-transition">
               🧋🥪♟️🎯🎲
             </span>{" "}
@@ -65,19 +78,14 @@ export default function Events() {
                 Events
               </h1>
             </div>
-            <p className="text-xl md:text-2xl text-stone-400 font-bold">
+            <p className="text-xl font-bold md:text-2xl text-stone-400">
               Are you ready for the next event at Sip N Play Café?
               <br />
-              <span className="text-white">
-                Check out the upcoming events and join us for a great time!
-              </span>
+              <span className="text-white">Check out the upcoming events and join us for a great time!</span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link
-                  href="https://www.exploretock.com/sipnplay"
-                  target="_blank"
-                >
+                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
                   Reservations
                 </Link>
               </Button>
@@ -91,14 +99,14 @@ export default function Events() {
         </div>
         {/* 🔻 Illustrations and gradient on the footer */}
         <div className="absolute bottom-0 -left-[50%] z-10 w-[200vw] h-[200px] bg-gradient-to-t from-stone-900 to-transparent" />
-        <div className="opacity-100 absolute -bottom-8 md:-bottom-16 left-0 w-full flex items-center justify-center gap-14 md:gap-20">
+        <div className="absolute left-0 flex items-center justify-center w-full opacity-100 -bottom-8 md:-bottom-16 gap-14 md:gap-20">
           <Image
             src="/Dices1.png"
             alt="Boardgame"
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-45"
+            className="object-cover h-auto rotate-45 w-28 md:w-52"
           />
           <Image
             src="/Boardgame2.png"
@@ -106,7 +114,7 @@ export default function Events() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover -rotate-12 -ml-16"
+            className="object-cover h-auto -ml-16 w-28 md:w-52 -rotate-12"
           />
           <Image
             src="/Dices2.png"
@@ -114,7 +122,7 @@ export default function Events() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-12"
+            className="object-cover h-auto w-28 md:w-52 rotate-12"
           />{" "}
           <Image
             src="/Boardgame1.png"
@@ -122,7 +130,7 @@ export default function Events() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-40 h-auto object-cover -rotate-45"
+            className="object-cover h-auto -rotate-45 w-28 md:w-40"
           />{" "}
           <Image
             src="/Dices1.png"
@@ -130,7 +138,7 @@ export default function Events() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover -rotate-45 -ml-10"
+            className="object-cover h-auto -ml-10 -rotate-45 w-28 md:w-52"
           />
           <Image
             src="/Boardgame2.png"
@@ -138,15 +146,15 @@ export default function Events() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-12 -ml-16"
+            className="object-cover h-auto -ml-16 w-28 md:w-52 rotate-12"
           />
         </div>
       </header>
       {/* 🔻 Events section */}
-      <div className="bg-stone-50 margin-y relative z-10">
-        <div className="margin-x pb-24 max-sm:pb-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {fakeData.map((event, i) => (
-            <CardUpcomingEvent key={i} event={event} long />
+      <div className="relative z-10 bg-stone-50 margin-y">
+        <div className="grid grid-cols-1 gap-16 pb-24 margin-x max-sm:pb-20 lg:grid-cols-2">
+          {events.map((event) => (
+            <CardUpcomingEvent key={event.id} event={event} long />
           ))}
         </div>
       </div>

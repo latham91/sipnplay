@@ -17,8 +17,8 @@ async function getBoardgames() {
 export default async function Boardgames() {
   const boardgames = await getBoardgames();
 
-  const wheelSegments = boardgames.map((boardgame) => boardgame.title);
-  const segColors = ["#EE4040", "#F0CF50", "#815CD1", "#3DA5E0", "#34A24F"];
+  const wheelSegments = boardgames.slice(0, 12).map((boardgame) => boardgame.title);
+  const segColors = ["#BFDBFE", "#FEF9C3", "#DDE9D3", "#FED7AA", "#FEE2E2", "#E9D5FF"];
 
   // Fake data to use while the backend is not ready
   const fakeData = [

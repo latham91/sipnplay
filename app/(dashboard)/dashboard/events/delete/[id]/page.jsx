@@ -13,7 +13,7 @@ export default function DeleteEvent({ params }) {
           <p className="text-xl">Performing this action is destructive and irreversible.</p>
         </div>
         <div className="flex items-center justify-between w-full gap-20 mt-10">
-          <Button variant="dashboard" className="w-full">
+          <Button variant="dashboard" className="w-full" asChild>
             <Link href="/dashboard/events">Cancel</Link>
           </Button>
           <form action={() => deleteEvent(params.id)} className="w-full">

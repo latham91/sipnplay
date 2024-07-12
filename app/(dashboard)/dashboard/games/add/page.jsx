@@ -38,7 +38,6 @@ export default function GameAddPage() {
       const res = await axios.post("https://api.imgbb.com/1/upload", imageFile, {
         headers: {
           "Content-Type": "multipart/form-data",
-          "Access-Control-Allow-Origin": "*",
         },
       });
 

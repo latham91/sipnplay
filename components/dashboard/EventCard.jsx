@@ -1,6 +1,7 @@
 import { CalendarIcon, ClockIcon, Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function EventCard({ event }) {
   return (
@@ -44,9 +45,11 @@ export default function EventCard({ event }) {
 
       {/* CARD BUTTON */}
       <div className="mt-4">
-        <Button variant="destructive" className="w-full">
-          <Trash2Icon className="w-5 h-5 mr-2" />
-          Delete Event
+        <Button variant="destructive" className="w-full" asChild>
+          <Link href={`/dashboard/events/delete/${event.id}`}>
+            <Trash2Icon className="w-5 h-5 mr-2" />
+            Delete Event
+          </Link>
         </Button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { CalendarIcon, ClockIcon, TagIcon, Trash2Icon, Users2Icon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function GameCard({ game }) {
   return (
@@ -35,9 +36,11 @@ export default function GameCard({ game }) {
 
       {/* CARD BUTTON */}
       <div className="mt-4">
-        <Button variant="destructive" className="w-full">
-          <Trash2Icon className="w-5 h-5 mr-2" />
-          Delete Game
+        <Button variant="destructive" className="w-full" asChild>
+          <Link href={`/dashboard/games/delete/${game.id}`}>
+            <Trash2Icon className="w-5 h-5 mr-2" />
+            Delete Game
+          </Link>
         </Button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Trash2Icon } from "lucide-react";
+import Link from "next/link";
 
 export default function MenuItemCard({ item }) {
   const smallPrice = item.prices.find((price) => price.size === "small");
@@ -95,9 +96,11 @@ export default function MenuItemCard({ item }) {
           ))}
         </div>
       </div>
-      <Button variant="destructive" className="mt-5">
-        <Trash2Icon className="w-5 h-5 mr-2" />
-        Delete Item
+      <Button variant="destructive" className="mt-5" asChild>
+        <Link href={`/dashboard/menu/delete/${item.id}`}>
+          <Trash2Icon className="w-5 h-5 mr-2" />
+          Delete Item
+        </Link>
       </Button>
     </div>
   );

@@ -65,7 +65,7 @@ model Price {
   type String
   price String
 
-  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
   menuItemId String
 
   createdAt DateTime @default(now())
@@ -76,7 +76,7 @@ model Additional {
   name String
   price String
 
-  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id], onDelete: Cascade)
   menuItemId String
 
   createdAt DateTime @default(now())

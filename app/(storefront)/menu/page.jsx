@@ -2,12 +2,45 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import prisma from "@/lib/prisma";
 
 const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), { ssr: false });
 const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), { ssr: false });
 const SceneThree = dynamic(() => import("@/components/storefront/3d/SceneThree"), { ssr: false });
 
-export default function Menu() {
+async function getMenuItems() {
+  const data = await prisma.menuItem.findMany({
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      category: true,
+      prices: {
+        select: {
+          id: true,
+          size: true,
+          type: true,
+          price: true,
+        },
+      },
+      additionals: {
+        select: {
+          id: true,
+          name: true,
+          price: true,
+        },
+      },
+    },
+  });
+
+  return data;
+}
+
+export default async function Menu() {
+  const menuItems = await getMenuItems();
+
+  console.log(menuItems);
+
   // Fake data to use while the backend is not ready
 
   return (

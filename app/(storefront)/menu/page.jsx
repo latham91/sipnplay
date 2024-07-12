@@ -53,8 +53,6 @@ async function getMenuItems() {
 export default async function Menu() {
   const menuItems = await getMenuItems();
 
-  console.log(menuItems);
-
   return (
     <div className="">
       <header className="relative overflow-hidden">
@@ -154,27 +152,68 @@ export default async function Menu() {
               </div>
               <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* COFFEE CARD */}
-                <div className="flex flex-col">
-                  <div className="bg-stone-800">
-                    <h5 className="ml-2 text-stone-50">Name</h5>
-                  </div>
-                  <div className="mt-2 mb-4">
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Small:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Medium:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Large:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                  </div>
-                  <p className="font-extrabold text-md text-stone-700">• Additionals </p>
-
-                  <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> + $10.00
-                  </p>
-                </div>
+                {menuItems
+                  .filter((item) => item.category === "Coffee")
+                  .map((item) => {
+                    const smallPrice = item.prices.find((price) => price.size === "small");
+                    const mediumPrice = item.prices.find((price) => price.size === "medium");
+                    const largePrice = item.prices.find((price) => price.size === "large");
+                    const hotPrice = item.prices.find((price) => price.type === "hot");
+                    const coldPrice = item.prices.find((price) => price.type === "cold");
+                    const priceOnly = item.prices.find((price) => price.size === "none" && price.type === "none");
+                    return (
+                      <div className="flex flex-col" key={item.id}>
+                        <div className="bg-stone-800">
+                          <h5 className="ml-2 text-stone-50">{item.name}</h5>
+                        </div>
+                        {item.description && <div className="mt-1 italic">{item.description}</div>}
+                        <div className="mt-2 mb-4">
+                          {smallPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Small:</p>
+                              <p className="font-bold">${smallPrice.price}</p>
+                            </div>
+                          )}
+                          {mediumPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Medium:</p>
+                              <p className="font-bold">${mediumPrice.price}</p>
+                            </div>
+                          )}
+                          {largePrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Large:</p>
+                              <p className="font-bold">${largePrice.price}</p>
+                            </div>
+                          )}
+                          {hotPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Hot:</p>
+                              <p className="font-bold">${hotPrice.price}</p>
+                            </div>
+                          )}
+                          {coldPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Cold:</p>
+                              <p className="font-bold">${coldPrice.price}</p>
+                            </div>
+                          )}
+                          {priceOnly && (
+                            <div className="flex items-center justify-between">
+                              <p className="font-bold">${priceOnly.price}</p>
+                            </div>
+                          )}
+                        </div>
+                        {item.additionals.length > 0 && <h5>Additionals</h5>}
+                        {item.additionals.map((additional, index) => (
+                          <div key={index} className="flex items-center justify-between">
+                            <p>{additional.name}:</p>
+                            <p className="font-bold">+${additional.price}</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
                 {/* END COFFEE CARD */}
               </div>
             </div>{" "}
@@ -194,28 +233,68 @@ export default async function Menu() {
               </div>
               <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* BOBA CARD */}
-                <div className="flex flex-col">
-                  <div className="bg-stone-800">
-                    <h5 className="ml-2 text-stone-50">Name</h5>
-                  </div>
-                  <p className="mt-2 text-sm">Small description</p>
-                  <div className="mt-2 mb-4">
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Small:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Medium:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Large:</span> $10.00 (H) • $10.99 (C)
-                    </p>
-                  </div>
-                  <p className="font-extrabold text-md text-stone-700">• Additionals</p>
-
-                  <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> + $10.00
-                  </p>
-                </div>
+                {menuItems
+                  .filter((item) => item.category === "Boba")
+                  .map((item) => {
+                    const smallPrice = item.prices.find((price) => price.size === "small");
+                    const mediumPrice = item.prices.find((price) => price.size === "medium");
+                    const largePrice = item.prices.find((price) => price.size === "large");
+                    const hotPrice = item.prices.find((price) => price.type === "hot");
+                    const coldPrice = item.prices.find((price) => price.type === "cold");
+                    const priceOnly = item.prices.find((price) => price.size === "none" && price.type === "none");
+                    return (
+                      <div className="flex flex-col" key={item.id}>
+                        <div className="bg-stone-800">
+                          <h5 className="ml-2 text-stone-50">{item.name}</h5>
+                        </div>
+                        {item.description && <div className="mt-1 italic">{item.description}</div>}
+                        <div className="mt-2 mb-4">
+                          {smallPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Small:</p>
+                              <p className="font-bold">${smallPrice.price}</p>
+                            </div>
+                          )}
+                          {mediumPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Medium:</p>
+                              <p className="font-bold">${mediumPrice.price}</p>
+                            </div>
+                          )}
+                          {largePrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Large:</p>
+                              <p className="font-bold">${largePrice.price}</p>
+                            </div>
+                          )}
+                          {hotPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Hot:</p>
+                              <p className="font-bold">${hotPrice.price}</p>
+                            </div>
+                          )}
+                          {coldPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Cold:</p>
+                              <p className="font-bold">${coldPrice.price}</p>
+                            </div>
+                          )}
+                          {priceOnly && (
+                            <div className="flex items-center justify-between">
+                              <p className="font-bold">${priceOnly.price}</p>
+                            </div>
+                          )}
+                        </div>
+                        {item.additionals.length > 0 && <h5>Additionals</h5>}
+                        {item.additionals.map((additional, index) => (
+                          <div key={index} className="flex items-center justify-between">
+                            <p>{additional.name}:</p>
+                            <p className="font-bold">+${additional.price}</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
                 {/* END BOBA CARD */}
               </div>
             </div>
@@ -228,21 +307,68 @@ export default async function Menu() {
               </div>
               <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* SANDWICH CARD */}
-                <div className="flex flex-col">
-                  <div className="bg-stone-800">
-                    <h5 className="ml-2 text-stone-50">Name</h5>
-                  </div>
-                  <p className="mt-2 text-sm">Small description</p>
-                  <div className="mt-2 mb-4">
-                    <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Price:</span> $10.00
-                    </p>
-                  </div>
-                  <p className="font-extrabold text-md text-stone-700">• Additionals</p>
-                  <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> + $10.00
-                  </p>
-                </div>
+                {menuItems
+                  .filter((item) => item.category === "Sandwiches")
+                  .map((item) => {
+                    const smallPrice = item.prices.find((price) => price.size === "small");
+                    const mediumPrice = item.prices.find((price) => price.size === "medium");
+                    const largePrice = item.prices.find((price) => price.size === "large");
+                    const hotPrice = item.prices.find((price) => price.type === "hot");
+                    const coldPrice = item.prices.find((price) => price.type === "cold");
+                    const priceOnly = item.prices.find((price) => price.size === "none" && price.type === "none");
+                    return (
+                      <div className="flex flex-col" key={item.id}>
+                        <div className="bg-stone-800">
+                          <h5 className="ml-2 text-stone-50">{item.name}</h5>
+                        </div>
+                        {item.description && <div className="mt-1 italic">{item.description}</div>}
+                        <div className="mt-2 mb-4">
+                          {smallPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Small:</p>
+                              <p className="font-bold">${smallPrice.price}</p>
+                            </div>
+                          )}
+                          {mediumPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Medium:</p>
+                              <p className="font-bold">${mediumPrice.price}</p>
+                            </div>
+                          )}
+                          {largePrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Large:</p>
+                              <p className="font-bold">${largePrice.price}</p>
+                            </div>
+                          )}
+                          {hotPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Hot:</p>
+                              <p className="font-bold">${hotPrice.price}</p>
+                            </div>
+                          )}
+                          {coldPrice && (
+                            <div className="flex items-center justify-between">
+                              <p>Cold:</p>
+                              <p className="font-bold">${coldPrice.price}</p>
+                            </div>
+                          )}
+                          {priceOnly && (
+                            <div className="flex items-center justify-between">
+                              <p className="font-bold">${priceOnly.price}</p>
+                            </div>
+                          )}
+                        </div>
+                        {item.additionals.length > 0 && <h5>Additionals</h5>}
+                        {item.additionals.map((additional, index) => (
+                          <div key={index} className="flex items-center justify-between">
+                            <p>{additional.name}:</p>
+                            <p className="font-bold">+${additional.price}</p>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })}
                 {/* END SANDWICH CARD */}
               </div>
             </div>{" "}

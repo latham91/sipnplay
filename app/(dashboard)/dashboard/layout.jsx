@@ -7,7 +7,7 @@ export default async function DashboardLayout({ children }) {
   const user = await getUser();
 
   if (!user || user.email !== process.env.ADMIN_EMAIL) {
-    return redirect("/");
+    return redirect("/api/auth/login");
   }
 
   return (

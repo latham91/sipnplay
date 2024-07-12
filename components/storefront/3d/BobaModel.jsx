@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -14,6 +14,7 @@ export default function BobaModel() {
 
   return (
     <group ref={group} position={[2, -1, 1]}>
+      <OrbitControls />
       <primitive object={scene} />
     </group>
   );

@@ -1,4 +1,4 @@
-import { useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -13,6 +13,7 @@ export default function CoffeeModel() {
   });
   return (
     <group ref={group} position={[0.0, -0.2, 4]} rotation={[0, 0, 0.5]}>
+      <OrbitControls />
       <primitive object={scene} />
     </group>
   );

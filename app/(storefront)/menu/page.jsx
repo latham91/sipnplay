@@ -39,8 +39,6 @@ async function getMenuItems() {
 export default async function Menu() {
   const menuItems = await getMenuItems();
 
-  console.log(menuItems);
-
   // Fake data to use while the backend is not ready
 
   return (

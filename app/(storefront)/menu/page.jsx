@@ -142,7 +142,7 @@ export default async function Menu() {
       </header>
       {/* 🔻 Menu section */}
       <div className="relative z-10 flex bg-stone-50">
-        <div className="w-full margin-x margin-y">
+        <div className="w-full margin-x margin-y max-md:space-y-20">
           {/* 🔻 Component to repeat */}
           <div className="flex max-md:flex-col-reverse w-full">
             <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
@@ -181,13 +181,13 @@ export default async function Menu() {
                 {/* END COFFEE CARD */}
               </div>
             </div>{" "}
-            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
+            <div className="w-full md:w-1/2 min-h-[200px] bg-stone-50">
               <SceneTwo />
             </div>
           </div>
           {/* 🔻 Component to repeat */}
           <div className="flex max-md:flex-col w-full">
-            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
+            <div className="w-full md:w-1/2 min-h-[200px] bg-stone-50">
               {" "}
               <SceneOne />
             </div>
@@ -259,7 +259,7 @@ export default async function Menu() {
                 {/* END SANDWICH CARD */}
               </div>
             </div>{" "}
-            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
+            <div className="w-full md:w-1/2 min-h-[200px] bg-stone-50">
               <SceneThree />
             </div>
           </div>

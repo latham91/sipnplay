@@ -36,6 +36,18 @@ model Event {
   createdAt DateTime @default(now())
 }
 
+model Game {
+  id String @id @default(uuid())
+  title String
+  minPlayers Int
+  maxPlayers Int
+  image String @default("/defaultimg.png")
+  category String
+
+  createdAt DateTime @default(now())
+
+}
+
 model MenuItem {
   id String @id @default(uuid())
   name String

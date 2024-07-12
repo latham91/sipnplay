@@ -9,27 +9,35 @@ import {
   DropdownMenuSeparator,
 } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
-import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import { LogOutIcon } from "lucide-react";
 
-export default function UserDropdown() {
+export default function UserDropdown({ user }) {
   return (
     <DropdownMenu>
       {/* AVATAR BUTTON */}
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full">
           <Avatar>
-            <AvatarFallback>Te</AvatarFallback>
+            <AvatarImage src={user.picture ?? "https://www.gravatar.com/avatar/?d=wavatar"} />
+            <AvatarFallback>
+              {user.given_name.charAt(0)}
+              {user.family_name?.charAt(0)}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
 
       {/* CONTENT */}
-      <DropdownMenuContent align="end" forceMound className="w-56">
+      <DropdownMenuContent align="end" forceMount className="w-56">
         <DropdownMenuLabel>
-          <p className="font-medium">Test Account</p>
-          <p className="text-xs font-light text-muted-foreground">testaccount@email.com</p>
+          <p className="font-medium">
+            {user.given_name} {user.family_name}
+          </p>
+          <p className="text-xs font-light text-muted-foreground">
+            {user.given_name === "Test" ? "testaccount@sipnplaynyc.com" : user.email}
+          </p>
         </DropdownMenuLabel>
 
         <DropdownMenuSeparator />

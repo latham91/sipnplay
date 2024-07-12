@@ -36,20 +36,23 @@ const navLinks = [
     title: "Reservations",
     href: "https://www.exploretock.com/sipnplay",
   },
+  {
+    id: 6,
+    title: "Admin",
+    href: "/dashboard",
+  },
 ];
 
 export default function Navbar() {
   return (
     <header className="bg-stone-50">
-      <nav className="margin-x py-4 flex items-center justify-between">
+      <nav className="flex items-center justify-between py-4 margin-x">
         <Logo className="w-16" />
         {/* DESKTOP NAVIGATION */}
-        <div className="hidden md:flex items-center gap-5">
+        <div className="items-center hidden gap-5 md:flex">
           {navLinks.map((link) => (
             <Link key={link.id} href={link.href} className="group">
-              <p className="group-hover:text-[#96b87b] my-transition">
-                {link.title}
-              </p>
+              <p className="group-hover:text-[#96b87b] my-transition">{link.title}</p>
               <div className="h-0.5 w-full bg-transparent group-hover:bg-[#96b87b] my-transition" />
             </Link>
           ))}
@@ -58,17 +61,15 @@ export default function Navbar() {
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="md:hidden">
-              <MenuIcon className="h-5 w-5" />
+              <MenuIcon className="w-5 h-5" />
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
             <Logo className="w-16 mb-12" />
-            <nav className="grid gap-4 text-lg mt-5">
+            <nav className="grid gap-4 mt-5 text-lg">
               {navLinks.map((link) => (
                 <Link key={link.id} href={link.href} className="group">
-                  <p className="group-hover:text-[#96b87b] my-transition">
-                    {link.title}
-                  </p>
+                  <p className="group-hover:text-[#96b87b] my-transition">{link.title}</p>
                 </Link>
               ))}
             </nav>

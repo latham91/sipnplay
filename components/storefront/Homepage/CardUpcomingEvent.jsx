@@ -22,9 +22,16 @@ export default function CardUpcomingEvent({ event, long }) {
           <div className="px-2 py-1 text-white bg-stone-800">
             <h4 className="text-stone-50 my-transition line-clamp-1">🎯 {event.title}</h4>
           </div>
+          <div className="flex items-center gap-10">
+            <p className="font-medium">📆 {event.date}</p>
+            <p>
+              🕒 {event.startTime} {event.startTime.slice(0, 2) >= 12 ? "PM" : "AM"} - {event.endTime}{" "}
+              {event.endTime.slice(0, 2) >= 12 ? "PM" : "AM"}
+            </p>
+          </div>
           <p className={`text-stone-400 text-sm ${long ? "" : "line-clamp-3"}`}>{event.description}</p>
           <div className="flex items-center gap-2">
-            <p className="font-bold  line-clamp-2 group-hover:underline my-transition">
+            <p className="font-bold line-clamp-2 group-hover:underline my-transition">
               {long ? "Reserve your spot now" : "Read more"}
             </p>
             <ChevronRight className="size-4 -mb-0.5 my-transition" />

@@ -29,7 +29,7 @@ const SpinWheel = ({
   isOnlyOnce = true,
   size = window.innerWidth,
   upDuration = 100,
-  downDuration = 1000,
+  downDuration = 400,
   fontFamily = "Poppins, sans-serif",
   fontSize = "1em",
   outlineWidth = 10,
@@ -177,7 +177,7 @@ const SpinWheel = ({
     ctx.save();
     ctx.translate(centerX, centerY);
     ctx.rotate((lastAngle + angle) / 2);
-    ctx.fillStyle = contrastColor;
+    ctx.fillStyle = "black";
     ctx.font = `bold ${fontSize} ${fontFamily}`;
     ctx.fillText(value.substring(0, 21), size / 2 + 20, 0);
     ctx.restore();
@@ -192,7 +192,7 @@ const SpinWheel = ({
     const len = segments.length;
     const PI2 = Math.PI * 2;
     ctx.lineWidth = 1;
-    ctx.strokeStyle = primaryColor;
+    ctx.strokeStyle = "#292524";
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.font = "1em " + fontFamily;
@@ -206,12 +206,12 @@ const SpinWheel = ({
     ctx.beginPath();
     ctx.arc(centerX, centerY, 50, 0, PI2, false);
     ctx.closePath();
-    ctx.fillStyle = primaryColor;
+    ctx.fillStyle = "#f472b6";
     ctx.lineWidth = 10;
     ctx.strokeStyle = contrastColor;
     ctx.fill();
     ctx.font = "bold 1em " + fontFamily;
-    ctx.fillStyle = contrastColor;
+    ctx.fillStyle = "#FAFAF9";
     ctx.textAlign = "center";
     ctx.fillText(buttonText, centerX, centerY + 3);
     ctx.stroke();
@@ -222,7 +222,7 @@ const SpinWheel = ({
     ctx.closePath();
 
     ctx.lineWidth = outlineWidth;
-    ctx.strokeStyle = primaryColor;
+    ctx.strokeStyle = "#FAFAF9";
     ctx.stroke();
   };
 

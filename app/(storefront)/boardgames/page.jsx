@@ -100,11 +100,17 @@ export default async function Boardgames() {
             <p className="text-xl font-bold md:text-2xl text-stone-400">
               Do you already know that we have a 300+ boardgames collection? 🎲
               <br />
-              <span className="text-white">Join us for a game night and have fun with your friends and family! 🎉</span>
+              <span className="text-white">
+                Join us for a game night and have fun with your friends and
+                family! 🎉
+              </span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
+                <Link
+                  href="https://www.exploretock.com/sipnplay"
+                  target="_blank"
+                >
                   Reservations
                 </Link>
               </Button>
@@ -176,7 +182,10 @@ export default async function Boardgames() {
           <div className="flex flex-col items-start gap-16">
             <div className="flex flex-col items-start">
               <h1 className="relative z-20 px-4 py-2 -mb-2 bg-stone-900 text-stone-50 md:px-6 hover:scale-110 my-transition">
-                Let our <span className="text-5xl max-md:text-4xl max-sm:text-3xl">✨</span>
+                Let our{" "}
+                <span className="text-5xl max-md:text-4xl max-sm:text-3xl">
+                  ✨
+                </span>
               </h1>
               <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2 -mb-2 hover:scale-110 my-transition">
                 Game Roulette
@@ -187,18 +196,23 @@ export default async function Boardgames() {
             </div>
             <p className="">
               <span className="font-bold text-stone-600">
-                Welcome to Game Roulette, your go-to tool for finding the perfect board game when you just can’t decide!
+                Welcome to Game Roulette, your go-to tool for finding the
+                perfect board game when you just can’t decide!
               </span>{" "}
-              Press "Play" and let the wheel decide your next adventure. Ask our friendly staff for the game and enjoy a
-              fresh, fun experience with your friends! 🎲
+              Press "Play" and let the wheel decide your next adventure. Ask our
+              friendly staff for the game and enjoy a fresh, fun experience with
+              your friends! 🎲
               <br />
               <br />
-              It’ll land on a game that's just right for you to try. Once you have your game, ask our friendly staff for it
-              and dive into a new and exciting adventure with your friends. Game Roulette takes the guesswork out of your
-              game night, ensuring you have a fantastic time, every time! 💖 <br />
+              It’ll land on a game that's just right for you to try. Once you
+              have your game, ask our friendly staff for it and dive into a new
+              and exciting adventure with your friends. Game Roulette takes the
+              guesswork out of your game night, ensuring you have a fantastic
+              time, every time! 💖 <br />
               <br />
               <span className="font-bold text-stone-600">
-                If you want to try a different game, just refresh the page and spin the wheel again. 🚀
+                If you want to try a different game, just refresh the page and
+                spin the wheel again. 🚀
               </span>
             </p>
           </div>
@@ -226,22 +240,29 @@ export default async function Boardgames() {
               <h1 className="relative z-20 px-4 py-2 -mb-2 bg-stone-50 md:px-6 hover:scale-110 my-transition">
                 Check out our
               </h1>
-              <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2 hover:scale-110 my-transition">collection of</h1>{" "}
-              <h1 className="relative z-20 px-4 py-2 -mb-2 bg-stone-50 md:px-6 hover:scale-110 my-transition">boardgames</h1>
+              <h1 className="relative z-10 bg-[#dde9d3] px-4 md:px-6 py-2 hover:scale-110 my-transition">
+                collection of
+              </h1>{" "}
+              <h1 className="relative z-20 px-4 py-2 -mb-2 bg-stone-50 md:px-6 hover:scale-110 my-transition">
+                boardgames
+              </h1>
             </div>
           </div>
           {/* 🔻 Description side*/}
           <div className="relative order-1 lg:order-2">
             <p className="text-stone-300">
-              Welcome to our curated collection of board games, where fun and excitement await! Whether you're a seasoned
-              strategist, a casual player, or a family looking for a great way to spend time together, we have the perfect
-              game for you. Our extensive selection includes timeless classics, modern favourites, and hidden gems that cater
-              to all ages and interests. 😊
+              Welcome to our curated collection of board games, where fun and
+              excitement await! Whether you're a seasoned strategist, a casual
+              player, or a family looking for a great way to spend time
+              together, we have the perfect game for you. Our extensive
+              selection includes timeless classics, modern favourites, and
+              hidden gems that cater to all ages and interests. 😊
               <br />
               <br />
               <span className="font-bold text-white">
-                Dive into the world of strategy, adventure, and creativity with our handpicked games. Explore the list below
-                and discover your next favourite game today! 🚀
+                Dive into the world of strategy, adventure, and creativity with
+                our handpicked games. Explore the list below and discover your
+                next favourite game today! 🚀
               </span>
             </p>
           </div>
@@ -261,7 +282,9 @@ export default async function Boardgames() {
                 />
                 <div className="flex flex-col items-start w-full">
                   <div className="px-2 py-0.5 rounded-sm border flex bg-[#dde9d3]/10 border-[#96b87b]">
-                    <p className="text-xs text-[#96b87b] uppercase">{boardgame.category}</p>
+                    <p className="text-xs text-[#96b87b] uppercase">
+                      {boardgame.category}
+                    </p>
                   </div>
                   <h6 className="mt-4 line-clamp-2">{boardgame.title}</h6>
                   <p>

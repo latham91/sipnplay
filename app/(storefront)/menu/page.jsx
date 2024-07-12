@@ -4,9 +4,16 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import prisma from "@/lib/prisma";
 
-const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), { ssr: false });
-const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), { ssr: false });
-const SceneThree = dynamic(() => import("@/components/storefront/3d/SceneThree"), { ssr: false });
+const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), {
+  ssr: false,
+});
+const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), {
+  ssr: false,
+});
+const SceneThree = dynamic(
+  () => import("@/components/storefront/3d/SceneThree"),
+  { ssr: false }
+);
 
 async function getMenuItems() {
   const data = await prisma.menuItem.findMany({
@@ -39,8 +46,6 @@ async function getMenuItems() {
 export default async function Menu() {
   const menuItems = await getMenuItems();
 
-  // Fake data to use while the backend is not ready
-
   return (
     <div className="">
       <header className="relative overflow-hidden">
@@ -59,12 +64,18 @@ export default async function Menu() {
               </h1>
             </div>
             <p className="text-xl font-bold md:text-2xl text-stone-400">
-              At Sip N Play, we offer a diverse and delicious menu designed to enhance your board game experience. <br />
-              <span className="text-white">Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲</span>
+              At Sip N Play, we offer a diverse and delicious menu designed to
+              enhance your board game experience. <br />
+              <span className="text-white">
+                Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲
+              </span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
+                <Link
+                  href="https://www.exploretock.com/sipnplay"
+                  target="_blank"
+                >
                   Reservations
                 </Link>
               </Button>
@@ -133,25 +144,124 @@ export default async function Menu() {
       <div className="relative z-10 flex bg-stone-50">
         <div className="w-full margin-x margin-y">
           {/* 🔻 Component to repeat */}
-          <div className="flex w-full">
-            <div className="bg-stone-50 h-[50vh] w-full">
-              <SceneOne />
-            </div>
-            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
-          </div>
-          {/* 🔻 Component to repeat */}
-          <div className="flex w-full">
-            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
-            <div className="bg-stone-50 h-[50vh] w-full">
+          <div className="flex max-md:flex-col-reverse w-full">
+            <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
+              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+                <h2 className="text-stone-50">☕ Coffee</h2>
+              </div>
+              <div className="w-full grid md:grid-cols-2 gap-12">
+                {/* COFFEE CARD */}
+                <div className="flex flex-col">
+                  <div className="bg-stone-800">
+                    <h5 className="text-stone-50 ml-2">Name</h5>
+                  </div>
+                  <div className="mt-2 mb-4">
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Small:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Medium:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Large:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                  </div>
+                  <p className="text-md font-extrabold text-stone-700">
+                    • Additionals{" "}
+                  </p>
+
+                  <p className="-mb-1">
+                    <span className="font-bold text-stone-700">Name</span> +
+                    $10.00
+                  </p>
+                </div>
+                {/* END COFFEE CARD */}
+              </div>
+            </div>{" "}
+            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
               <SceneTwo />
             </div>
           </div>
           {/* 🔻 Component to repeat */}
-          <div className="flex w-full">
-            <div className="bg-stone-50 h-[50vh] w-full">
+          <div className="flex max-md:flex-col w-full">
+            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
+              {" "}
+              <SceneOne />
+            </div>
+            <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
+              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+                <h2 className="text-stone-50">🧋 Boba</h2>
+              </div>
+              <div className="w-full grid md:grid-cols-2 gap-12">
+                {/* BOBA CARD */}
+                <div className="flex flex-col">
+                  <div className="bg-stone-800">
+                    <h5 className="text-stone-50 ml-2">Name</h5>
+                  </div>
+                  <p className="text-sm mt-2">Small description</p>
+                  <div className="mt-2 mb-4">
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Small:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Medium:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Large:</span>{" "}
+                      $10.00 (H) • $10.99 (C)
+                    </p>
+                  </div>
+                  <p className="text-md font-extrabold text-stone-700">
+                    • Additionals
+                  </p>
+
+                  <p className="-mb-1">
+                    <span className="font-bold text-stone-700">Name</span> +
+                    $10.00
+                  </p>
+                </div>
+                {/* END BOBA CARD */}
+              </div>
+            </div>
+          </div>
+          {/* 🔻 Component to repeat */}
+          <div className="flex max-md:flex-col-reverse w-full">
+            <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
+              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+                <h2 className="text-stone-50">🥪 Sandwiches</h2>
+              </div>
+              <div className="w-full grid md:grid-cols-2 gap-12">
+                {/* SANDWICH CARD */}
+                <div className="flex flex-col">
+                  <div className="bg-stone-800">
+                    <h5 className="text-stone-50 ml-2">Name</h5>
+                  </div>
+                  <p className="text-sm mt-2">Small description</p>
+                  <div className="mt-2 mb-4">
+                    <p className="-mb-1">
+                      <span className="font-bold text-stone-700">Price:</span>{" "}
+                      $10.00
+                    </p>
+                  </div>
+                  <p className="text-md font-extrabold text-stone-700">
+                    • Additionals
+                  </p>
+                  <p className="-mb-1">
+                    <span className="font-bold text-stone-700">Name</span> +
+                    $10.00
+                  </p>
+                </div>
+                {/* END SANDWICH CARD */}
+              </div>
+            </div>{" "}
+            <div className="w-full md:w-1/2 min-h-[350px] bg-stone-50">
               <SceneThree />
             </div>
-            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
           </div>
         </div>
       </div>

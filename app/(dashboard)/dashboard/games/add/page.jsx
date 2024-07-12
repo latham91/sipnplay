@@ -38,6 +38,7 @@ export default function GameAddPage() {
       const res = await axios.post("https://api.imgbb.com/1/upload", imageFile, {
         headers: {
           "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
         },
       });
 
@@ -109,11 +110,11 @@ export default function GameAddPage() {
         </div>
         <div className="space-y-2">
           <Label>Minimum Players</Label>
-          <Input type="number" name="gameMin" step={1} min={1} max={8} className="inline" required />
+          <Input type="number" name="gameMin" step={1} min={1} max={10} className="inline" required />
         </div>
         <div className="space-y-2">
           <Label>Maximum Players</Label>
-          <Input type="number" name="gameMax" step={1} min={1} max={8} className="inline" required />
+          <Input type="number" name="gameMax" step={1} min={1} max={10} className="inline" required />
         </div>
       </div>
       <Button type="submit" variant="dashboard" className="w-full mt-5">

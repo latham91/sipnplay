@@ -1,3 +1,9 @@
+import Statistics from "@/components/dashboard/Statistics";
+
 export default function DashboardHomePage() {
-  return <div>DashboardHomePage</div>;
+  return (
+    <div>
+      <Statistics />
+    </div>
+  );
 }

@@ -3,13 +3,17 @@ import { Button } from "../ui/button";
 import UserDropdown from "./UserDropdown";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { MenuIcon } from "lucide-react";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const navItems = [
   { id: 0, name: "Events", path: "/dashboard/events" },
   { id: 0, name: "Menu", path: "/dashboard/menu" },
   { id: 0, name: "Games", path: "/dashboard/games" },
 ];
-export default function Navbar() {
+export default async function Navbar() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
   return (
     <header>
       <nav className="flex items-center justify-between p-4 mx-auto max-w-7xl">
@@ -48,7 +52,7 @@ export default function Navbar() {
             </SheetContent>
           </Sheet>
 
-          <UserDropdown />
+          <UserDropdown user={user} />
         </div>
       </nav>
     </header>

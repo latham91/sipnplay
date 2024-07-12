@@ -12,6 +12,7 @@ export default function EventCard({ event }) {
             src={event.image || "/eventplaceholder_1.jpg"}
             alt="Event image"
             fill
+            sizes="100%"
             className="object-cover w-full h-full rounded-md"
           />
         </div>

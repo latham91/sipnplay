@@ -81,7 +81,7 @@
   h4,
   h5,
   h6 {
-    @apply font-title font-extrabold tracking-tight text-stone-900;
+    @apply font-extrabold tracking-tight font-title text-stone-900;
   }
   h1 {
     @apply text-7xl max-md:text-6xl max-sm:text-5xl;
@@ -103,22 +103,22 @@
   }
   p,
   input {
-    @apply text-base font-sans text-stone-500 leading-8;
+    @apply font-sans text-base leading-8 text-stone-500;
   }
   ::selection {
     @apply bg-[#dde9d3] text-stone-900;
   }
   .absolute-center {
-    @apply top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    @apply transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2;
   }
   .my-transition {
-    @apply transition-all ease-in-out duration-300;
+    @apply transition-all duration-300 ease-in-out;
   }
   .margin-y {
     @apply py-24 max-sm:py-20;
   }
   .margin-x {
-    @apply px-6 lg:px-8 mx-auto max-w-7xl;
+    @apply px-6 mx-auto lg:px-8 max-w-7xl;
   }
   .boardgame-field {
     @apply aspect-square rounded-lg flex items-center justify-center hover:rotate-12 my-transition text-xs md:text-sm font-bold;

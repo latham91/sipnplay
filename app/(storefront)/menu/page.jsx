@@ -10,41 +10,50 @@ const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), {
 const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), {
   ssr: false,
 });
-const SceneThree = dynamic(
-  () => import("@/components/storefront/3d/SceneThree"),
-  { ssr: false }
-);
+const SceneThree = dynamic(() => import("@/components/storefront/3d/SceneThree"), { ssr: false });
 
 async function getMenuItems() {
-  const data = await prisma.menuItem.findMany({
-    select: {
-      id: true,
-      name: true,
-      description: true,
-      category: true,
-      prices: {
-        select: {
-          id: true,
-          size: true,
-          type: true,
-          price: true,
+  const categories = ["Coffee", "Boba", "Sandwiches"]; // replace with your actual categories
+  const promises = categories.map((category) =>
+    prisma.menuItem.findMany({
+      where: {
+        category: category,
+      },
+      take: 4,
+      select: {
+        id: true,
+        name: true,
+        description: true,
+        category: true,
+        prices: {
+          select: {
+            id: true,
+            size: true,
+            type: true,
+            price: true,
+          },
+        },
+        additionals: {
+          select: {
+            id: true,
+            name: true,
+            price: true,
+          },
         },
       },
-      additionals: {
-        select: {
-          id: true,
-          name: true,
-          price: true,
-        },
-      },
-    },
-  });
+    })
+  );
+
+  // Await all promises and flatten the result
+  const data = (await Promise.all(promises)).flat();
 
   return data;
 }
 
 export default async function Menu() {
   const menuItems = await getMenuItems();
+
+  console.log(menuItems);
 
   return (
     <div className="">
@@ -64,18 +73,12 @@ export default async function Menu() {
               </h1>
             </div>
             <p className="text-xl font-bold md:text-2xl text-stone-400">
-              At Sip N Play, we offer a diverse and delicious menu designed to
-              enhance your board game experience. <br />
-              <span className="text-white">
-                Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲
-              </span>
+              At Sip N Play, we offer a diverse and delicious menu designed to enhance your board game experience. <br />
+              <span className="text-white">Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲</span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link
-                  href="https://www.exploretock.com/sipnplay"
-                  target="_blank"
-                >
+                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
                   Reservations
                 </Link>
               </Button>
@@ -144,38 +147,32 @@ export default async function Menu() {
       <div className="relative z-10 flex bg-stone-50">
         <div className="w-full margin-x margin-y max-md:space-y-20">
           {/* 🔻 Component to repeat */}
-          <div className="flex max-md:flex-col-reverse w-full">
+          <div className="flex w-full max-md:flex-col-reverse">
             <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
-              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+              <div className="flex flex-col items-center px-4 py-2 -mt-16 text-center bg-stone-800">
                 <h2 className="text-stone-50">☕ Coffee</h2>
               </div>
-              <div className="w-full grid md:grid-cols-2 gap-12">
+              <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* COFFEE CARD */}
                 <div className="flex flex-col">
                   <div className="bg-stone-800">
-                    <h5 className="text-stone-50 ml-2">Name</h5>
+                    <h5 className="ml-2 text-stone-50">Name</h5>
                   </div>
                   <div className="mt-2 mb-4">
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Small:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Small:</span> $10.00 (H) • $10.99 (C)
                     </p>
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Medium:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Medium:</span> $10.00 (H) • $10.99 (C)
                     </p>
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Large:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Large:</span> $10.00 (H) • $10.99 (C)
                     </p>
                   </div>
-                  <p className="text-md font-extrabold text-stone-700">
-                    • Additionals{" "}
-                  </p>
+                  <p className="font-extrabold text-md text-stone-700">• Additionals </p>
 
                   <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> +
-                    $10.00
+                    <span className="font-bold text-stone-700">Name</span> + $10.00
                   </p>
                 </div>
                 {/* END COFFEE CARD */}
@@ -186,43 +183,37 @@ export default async function Menu() {
             </div>
           </div>
           {/* 🔻 Component to repeat */}
-          <div className="flex max-md:flex-col w-full">
+          <div className="flex w-full max-md:flex-col">
             <div className="w-full md:w-1/2 min-h-[200px] bg-stone-50">
               {" "}
               <SceneOne />
             </div>
             <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
-              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+              <div className="flex flex-col items-center px-4 py-2 -mt-16 text-center bg-stone-800">
                 <h2 className="text-stone-50">🧋 Boba</h2>
               </div>
-              <div className="w-full grid md:grid-cols-2 gap-12">
+              <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* BOBA CARD */}
                 <div className="flex flex-col">
                   <div className="bg-stone-800">
-                    <h5 className="text-stone-50 ml-2">Name</h5>
+                    <h5 className="ml-2 text-stone-50">Name</h5>
                   </div>
-                  <p className="text-sm mt-2">Small description</p>
+                  <p className="mt-2 text-sm">Small description</p>
                   <div className="mt-2 mb-4">
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Small:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Small:</span> $10.00 (H) • $10.99 (C)
                     </p>
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Medium:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Medium:</span> $10.00 (H) • $10.99 (C)
                     </p>
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Large:</span>{" "}
-                      $10.00 (H) • $10.99 (C)
+                      <span className="font-bold text-stone-700">Large:</span> $10.00 (H) • $10.99 (C)
                     </p>
                   </div>
-                  <p className="text-md font-extrabold text-stone-700">
-                    • Additionals
-                  </p>
+                  <p className="font-extrabold text-md text-stone-700">• Additionals</p>
 
                   <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> +
-                    $10.00
+                    <span className="font-bold text-stone-700">Name</span> + $10.00
                   </p>
                 </div>
                 {/* END BOBA CARD */}
@@ -230,30 +221,26 @@ export default async function Menu() {
             </div>
           </div>
           {/* 🔻 Component to repeat */}
-          <div className="flex max-md:flex-col-reverse w-full">
+          <div className="flex w-full max-md:flex-col-reverse">
             <div className="relative z-20 w-full md:w-1/2 bg-[#dde9d3] p-10 flex flex-col items-start gap-12">
-              <div className="text-center flex flex-col items-center bg-stone-800 px-4 py-2 -mt-16">
+              <div className="flex flex-col items-center px-4 py-2 -mt-16 text-center bg-stone-800">
                 <h2 className="text-stone-50">🥪 Sandwiches</h2>
               </div>
-              <div className="w-full grid md:grid-cols-2 gap-12">
+              <div className="grid w-full gap-12 md:grid-cols-2">
                 {/* SANDWICH CARD */}
                 <div className="flex flex-col">
                   <div className="bg-stone-800">
-                    <h5 className="text-stone-50 ml-2">Name</h5>
+                    <h5 className="ml-2 text-stone-50">Name</h5>
                   </div>
-                  <p className="text-sm mt-2">Small description</p>
+                  <p className="mt-2 text-sm">Small description</p>
                   <div className="mt-2 mb-4">
                     <p className="-mb-1">
-                      <span className="font-bold text-stone-700">Price:</span>{" "}
-                      $10.00
+                      <span className="font-bold text-stone-700">Price:</span> $10.00
                     </p>
                   </div>
-                  <p className="text-md font-extrabold text-stone-700">
-                    • Additionals
-                  </p>
+                  <p className="font-extrabold text-md text-stone-700">• Additionals</p>
                   <p className="-mb-1">
-                    <span className="font-bold text-stone-700">Name</span> +
-                    $10.00
+                    <span className="font-bold text-stone-700">Name</span> + $10.00
                   </p>
                 </div>
                 {/* END SANDWICH CARD */}

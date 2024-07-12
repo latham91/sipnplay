@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sip & Play - Track 1 - Codedex Summer Hackathon 2024
 
-## Getting Started
+## Team Members
+- **Dut**: Front-end Developer, UI/UX Developer
+- **Aaron**: Full-stack Developer, Backend and Databases
 
-First, run the development server:
+## Problem Statement
+The task was to revamp the Sip & Play website, improving the UI and UX while incorporating 3D elements into the menu within a 24-hour sprint.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- Next.js
+- TailwindCSS
+- NeonDB
+- Prisma ORM
+- Shadcn-UI
+- Three.js
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- **Full Website Redesign**: Enhanced the overall look and feel of the website.
+- **3D Models on Menu Page**: Added interactive 3D elements to the menu as requested.
+- **Random Prize-Wheel**: A fun feature to help users choose a random board game to play.
+- **Functional CRM/Admin Panel**: Allows staff to add and delete new menu items, events, and board games, with updates reflected in real-time on the front end.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Challenges
+- **Time Constraint**: Completing the project within a 24-hour period was demanding.
+- **Unfamiliarity with Three.js**: Significant time was spent learning and implementing Three.js for the 3D elements.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Impact
+The redesign greatly enhances the user experience and aesthetic appeal of the website. The admin panel provides staff with efficient management tools, and the random board game selector adds a fun, interactive feature for customers.
 
-## Learn More
+## Future Plans
+- Further optimization and refinement of 3D elements.
+- Additional features based on user feedback.
+- Continuous improvement of the UI/UX based on analytics and user behavior.
 
-To learn more about Next.js, take a look at the following resources:
+## Live site
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Credit for assets

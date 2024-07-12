@@ -40,7 +40,7 @@ const navLinks = [
 
 export default function Navbar() {
   return (
-    <header className="bg-neutral-50">
+    <header className="bg-stone-50">
       <nav className="margin-x py-4 flex items-center justify-between">
         <Logo className="w-16" />
         {/* DESKTOP NAVIGATION */}

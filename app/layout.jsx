@@ -1,5 +1,3 @@
-import Footer from "@/components/storefront/Footer";
-import Navbar from "@/components/storefront/Navbar";
 import "./globals.css";
 
 export const metadata = {

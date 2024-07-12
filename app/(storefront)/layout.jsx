@@ -4,7 +4,7 @@ import Navbar from "@/components/storefront/Navbar";
 export default function StoreFrontLayout({ children }) {
   return (
     <div>
-      <main>
+      <main className="bg-grid">
         <Navbar />
         {children}
         <Footer />

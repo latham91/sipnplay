@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), { ssr: false });
+const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), { ssr: false });
+const SceneThree = dynamic(() => import("@/components/storefront/3d/SceneThree"), { ssr: false });
 
 export default function Menu() {
   // Fake data to use while the backend is not ready
@@ -10,7 +15,7 @@ export default function Menu() {
       <header className="relative overflow-hidden">
         {/* 🔻 Hero section */}
         <div className="margin-x margin-y ">
-          <div className="flex flex-col items-center justify-center gap-12 mb-24 md:mb-36 mt-4 text-center">
+          <div className="flex flex-col items-center justify-center gap-12 mt-4 mb-24 text-center md:mb-36">
             <span className="text-xl md:text-3xl bg-[#dde9d3] px-4 py-2 -mb-14 relative z-30 hover:scale-110 my-transition">
               🧋🥪♟️🎯🎲
             </span>{" "}
@@ -22,19 +27,13 @@ export default function Menu() {
                 Menu
               </h1>
             </div>
-            <p className="text-xl md:text-2xl text-stone-400 font-bold">
-              At Sip N Play, we offer a diverse and delicious menu designed to
-              enhance your board game experience. <br />
-              <span className="text-white">
-                Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲
-              </span>
+            <p className="text-xl font-bold md:text-2xl text-stone-400">
+              At Sip N Play, we offer a diverse and delicious menu designed to enhance your board game experience. <br />
+              <span className="text-white">Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲</span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link
-                  href="https://www.exploretock.com/sipnplay"
-                  target="_blank"
-                >
+                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
                   Reservations
                 </Link>
               </Button>
@@ -48,14 +47,14 @@ export default function Menu() {
         </div>
         {/* 🔻 Illustrations and gradient on the footer */}
         <div className="absolute bottom-0 -left-[50%] z-10 w-[200vw] h-[200px] bg-gradient-to-t from-stone-900 to-transparent" />
-        <div className="opacity-100 absolute -bottom-8 md:-bottom-16 left-0 w-full flex items-center justify-center gap-14 md:gap-20">
+        <div className="absolute left-0 flex items-center justify-center w-full opacity-100 -bottom-8 md:-bottom-16 gap-14 md:gap-20">
           <Image
             src="/Dices1.png"
             alt="Boardgame"
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-45"
+            className="object-cover h-auto rotate-45 w-28 md:w-52"
           />
           <Image
             src="/Boardgame2.png"
@@ -63,7 +62,7 @@ export default function Menu() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover -rotate-12 -ml-16"
+            className="object-cover h-auto -ml-16 w-28 md:w-52 -rotate-12"
           />
           <Image
             src="/Dices2.png"
@@ -71,7 +70,7 @@ export default function Menu() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-12"
+            className="object-cover h-auto w-28 md:w-52 rotate-12"
           />{" "}
           <Image
             src="/Boardgame1.png"
@@ -79,7 +78,7 @@ export default function Menu() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-40 h-auto object-cover -rotate-45"
+            className="object-cover h-auto -rotate-45 w-28 md:w-40"
           />{" "}
           <Image
             src="/Dices1.png"
@@ -87,7 +86,7 @@ export default function Menu() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover -rotate-45 -ml-10"
+            className="object-cover h-auto -ml-10 -rotate-45 w-28 md:w-52"
           />
           <Image
             src="/Boardgame2.png"
@@ -95,33 +94,33 @@ export default function Menu() {
             width={500}
             height={500}
             draggable="false"
-            className="w-28 md:w-52 h-auto object-cover rotate-12 -ml-16"
+            className="object-cover h-auto -ml-16 w-28 md:w-52 rotate-12"
           />
         </div>
       </header>
       {/* 🔻 Menu section */}
       <div className="relative z-10 flex bg-stone-50">
-        <div className="margin-x margin-y w-full">
+        <div className="w-full margin-x margin-y">
           {/* 🔻 Component to repeat */}
           <div className="flex w-full">
-            <div className="bg-stone-50 h-[50vh] w-full">Space for the 3D</div>
-            <div className="bg-[#dde9d3] h-[50vh] w-full">
-              Space for the food
+            <div className="bg-stone-50 h-[50vh] w-full">
+              <SceneOne />
+            </div>
+            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
+          </div>
+          {/* 🔻 Component to repeat */}
+          <div className="flex w-full">
+            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
+            <div className="bg-stone-50 h-[50vh] w-full">
+              <SceneTwo />
             </div>
           </div>
           {/* 🔻 Component to repeat */}
           <div className="flex w-full">
-            <div className="bg-[#dde9d3] h-[50vh] w-full">
-              Space for the food
+            <div className="bg-stone-50 h-[50vh] w-full">
+              <SceneThree />
             </div>
-            <div className="bg-stone-50 h-[50vh] w-full">Space for the 3D</div>
-          </div>
-          {/* 🔻 Component to repeat */}
-          <div className="flex w-full">
-            <div className="bg-stone-50 h-[50vh] w-full">Space for the 3D</div>
-            <div className="bg-[#dde9d3] h-[50vh] w-full">
-              Space for the food
-            </div>
+            <div className="bg-[#dde9d3] h-[50vh] w-full">Space for the food</div>
           </div>
         </div>
       </div>

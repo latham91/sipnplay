@@ -12,3 +12,60 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @unique
+  email String @unique
+  firstName String
+  lastName String
+  avatar String @default("https://www.gravatar.com/avatar/?d=wavatar")
+
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  id String @id @default(uuid())
+  title String
+  subtitle String
+  date String
+  startTime String
+  endTime String
+  description String
+  image String @default("/defaultimg.png")
+
+  createdAt DateTime @default(now())
+}
+
+model MenuItem {
+  id String @id @default(uuid())
+  name String
+  description String
+  prices Price[]
+  additionals Additional[]
+  category String
+
+  createdAt DateTime @default(now())
+}
+
+model Price {
+  id String @id @default(uuid())
+  size String
+  type String
+  price String
+
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId String
+
+  createdAt DateTime @default(now())
+}
+
+model Additional {
+  id String @id @default(uuid())
+  name String
+  price String
+
+  menuItem MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId String
+
+  createdAt DateTime @default(now())
+}

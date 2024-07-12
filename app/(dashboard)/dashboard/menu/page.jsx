@@ -27,7 +27,7 @@ async function getMenuItems() {
       },
     },
     orderBy: {
-      name: "asc",
+      category: "asc",
     },
   });
 
@@ -36,7 +36,6 @@ async function getMenuItems() {
 
 export default async function MenuPage() {
   const menuItems = await getMenuItems();
-  console.log(menuItems);
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
@@ -49,7 +48,7 @@ export default async function MenuPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
         {menuItems.length > 0 ? (
           menuItems.map((item) => <MenuItemCard key={item.id} item={item} />)
         ) : (

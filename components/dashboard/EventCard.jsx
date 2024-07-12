@@ -1,4 +1,4 @@
-import { CalendarIcon, ClockIcon } from "lucide-react";
+import { CalendarIcon, ClockIcon, Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
@@ -43,8 +43,9 @@ export default function EventCard({ event }) {
 
       {/* CARD BUTTON */}
       <div className="mt-4">
-        <Button variant="dashboard" className="w-full">
-          Manage Event
+        <Button variant="destructive" className="w-full">
+          <Trash2Icon className="w-5 h-5 mr-2" />
+          Delete Event
         </Button>
       </div>
     </div>

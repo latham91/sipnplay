@@ -51,7 +51,7 @@ model Price {
   id String @id @default(uuid())
   size String
   type String
-  price Float
+  price String
 
   menuItem MenuItem @relation(fields: [menuItemId], references: [id])
   menuItemId String
@@ -62,7 +62,7 @@ model Price {
 model Additional {
   id String @id @default(uuid())
   name String
-  price Float
+  price String
 
   menuItem MenuItem @relation(fields: [menuItemId], references: [id])
   menuItemId String

@@ -34,5 +34,16 @@ The redesign greatly enhances the user experience and aesthetic appeal of the we
 - Continuous improvement of the UI/UX based on analytics and user behavior.
 
 ## Live site
+[https://sipnplay-peach.vercel.app](https://sipnplay-peach.vercel.app/)
+
+## Github repo
+[https://github.com/latham91/sipnplay](https://github.com/latham91/sipnplay)
 
 ## Credit for assets
+Pictures used are from the Sip & Play official instagram
+[Sip & Play Instagram](https://www.instagram.com/sipnplaynyc)
+
+"Bubble Tea and Cookies" (https://skfb.ly/oKPG7) by Sm1yle is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Club sandwich pile" (https://skfb.ly/oKIsW) by alban is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Cafe Latte with Art (ラテアート)" (https://skfb.ly/oVuLq) by horse_water is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+

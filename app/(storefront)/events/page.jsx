@@ -63,7 +63,7 @@ export default async function Events() {
 
   return (
     <div className="">
-      <header className="relative">
+      <header className="relative overflow-hidden">
         {/* 🔻 Hero section */}
         <div className="margin-x margin-y">
           <div className="flex flex-col items-center justify-center gap-12 mt-4 mb-24 text-center md:mb-36">

@@ -1,4 +1,4 @@
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { MenuIcon } from "lucide-react";
 
@@ -65,7 +65,10 @@ export default function Navbar() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
-            <Logo className="w-16 mb-12" />
+            <SheetTitle>
+              <Logo className="w-16 mb-12" />
+            </SheetTitle>
+            <SheetDescription></SheetDescription>
             <nav className="grid gap-4 mt-5 text-lg">
               {navLinks.map((link) => (
                 <Link key={link.id} href={link.href} className="group">

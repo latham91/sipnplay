@@ -27,7 +27,6 @@ const SpinWheel = ({
   contrastColor = "white",
   buttonText = "Spin",
   isOnlyOnce = true,
-  size = window.innerWidth,
   upDuration = 100,
   downDuration = 400,
   fontFamily = "Poppins, sans-serif",
@@ -35,8 +34,7 @@ const SpinWheel = ({
   outlineWidth = 10,
 }) => {
   const randomString = () => {
-    const chars =
-      "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".split("");
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".split("");
     const length = 8;
     let str = "";
     for (let i = 0; i < length; i++) {
@@ -46,12 +44,13 @@ const SpinWheel = ({
   };
   const canvasId = useRef(`canvas-sipnplay`);
   const wheelId = useRef(`wheel-sipnplay`);
-  const dimension = (size + 20) * 2;
   let currentSegment = "";
   let isStarted = false;
   const [isFinished, setFinished] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalWinner, setModalWinner] = useState("");
+  const [size, setSize] = useState(265);
+  const dimension = (size + 20) * 2;
   let timerHandle = 0;
   const timerDelay = segments.length;
   let angleCurrent = 0;
@@ -80,6 +79,27 @@ const SpinWheel = ({
     setModalWinner(segment);
     setModalVisible(true);
   };
+
+  const updateSize = () => {
+    if (window.innerWidth <= 1000) {
+      setSize(230);
+      wheelInit();
+    } else if (window.innerWidth <= 1100) {
+      setSize(195);
+      wheelInit();
+    } else {
+      setSize(265);
+      wheelInit();
+    }
+  };
+
+  useEffect(() => {
+    updateSize();
+
+    window.addEventListener("resize", updateSize);
+
+    return () => window.removeEventListener("resize", updateSize);
+  }, [size]);
 
   const initCanvas = () => {
     let canvas = document.getElementById(canvasId.current);
@@ -122,18 +142,15 @@ const SpinWheel = ({
       if (winningSegment) {
         if (currentSegment === winningSegment && frames > segments.length) {
           progress = duration / upTime;
-          angleDelta =
-            maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
+          angleDelta = maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
           progress = 1;
         } else {
           progress = duration / downTime;
-          angleDelta =
-            maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
+          angleDelta = maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
         }
       } else {
         progress = duration / downTime;
-        angleDelta =
-          maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
+        angleDelta = maxSpeed * Math.sin((progress * Math.PI) / 2 + Math.PI / 2);
       }
       if (progress >= 1) finished = true;
     }
@@ -245,18 +262,14 @@ const SpinWheel = ({
     ctx.closePath();
     ctx.fill();
     const change = angleCurrent + Math.PI / 2;
-    let i =
-      segments.length -
-      Math.floor((change / (Math.PI * 2)) * segments.length) -
-      1;
+    let i = segments.length - Math.floor((change / (Math.PI * 2)) * segments.length) - 1;
     if (i < 0) i = i + segments.length;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = primaryColor;
     ctx.font = "bold 1.5em " + fontFamily;
     currentSegment = segments[i];
-    isStarted &&
-      ctx.fillText(currentSegment, centerX + 10, centerY + size + 50);
+    isStarted && ctx.fillText(currentSegment, centerX + 10, centerY + size + 50);
   };
 
   const clear = () => {
@@ -281,14 +294,8 @@ const SpinWheel = ({
       {modalVisible && (
         <div className="absolute flex flex-col items-center justify-center p-5 text-3xl font-bold bg-white rounded-full inset-10">
           <h4>Your boardgame is</h4>
-          <h3 className="text-5xl font-extrabold text-center text-green-500">
-            {modalWinner}!
-          </h3>
-          <Button
-            className="w-[80%] mt-10"
-            variant="destructive"
-            onClick={handleModalClose}
-          >
+          <h3 className="text-5xl font-extrabold text-center text-green-500">{modalWinner}!</h3>
+          <Button className="w-[80%] mt-10" variant="destructive" onClick={handleModalClose}>
             Close
           </Button>
         </div>

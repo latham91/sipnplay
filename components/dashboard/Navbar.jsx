@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import UserDropdown from "./UserDropdown";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { MenuIcon } from "lucide-react";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
@@ -41,7 +41,10 @@ export default async function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <h2 className="pb-4 text-xl font-semibold border-b">Dashboard Menu</h2>
+              <SheetTitle>
+                <h2 className="pb-4 text-xl font-semibold border-b">Dashboard Menu</h2>
+              </SheetTitle>
+              <SheetDescription></SheetDescription>
               <nav className="grid gap-6 mt-5 text-lg">
                 {navItems.map((item) => (
                   <Link key={item.id} href={item.path}>

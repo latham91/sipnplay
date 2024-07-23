@@ -19,7 +19,7 @@ The task was to revamp the Sip & Play website, improving the UI and UX while inc
 - **Full Website Redesign**: Enhanced the overall look and feel of the website.
 - **3D Models on Menu Page**: Added interactive 3D elements to the menu as requested.
 - **Random Prize-Wheel**: A fun feature to help users choose a random board game to play.
-- **Functional CRM/Admin Panel**: Allows staff to add and delete new menu items, events, and board games, with updates reflected in real-time on the front end.
+- **Functional CMS/Admin Panel**: Allows staff to add and delete new menu items, events, and board games, with updates reflected in real-time on the front end.
 
 ## Challenges
 - **Time Constraint**: Completing the project within a 24-hour period was demanding.

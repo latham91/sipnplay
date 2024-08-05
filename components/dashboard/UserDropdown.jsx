@@ -20,7 +20,7 @@ export default function UserDropdown({ user }) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full">
           <Avatar>
-            <AvatarImage src={user.picture ?? "https://www.gravatar.com/avatar/?d=wavatar"} />
+            <AvatarImage src={user.picture.includes("?d=blank") ? "" : user.picture} />
             <AvatarFallback>
               {user.given_name.charAt(0)}
               {user.family_name?.charAt(0)}
@@ -35,9 +35,7 @@ export default function UserDropdown({ user }) {
           <p className="font-medium">
             {user.given_name} {user.family_name}
           </p>
-          <p className="text-xs font-light text-muted-foreground">
-            {user.given_name === "Test" ? "testaccount@sipnplaynyc.com" : user.email}
-          </p>
+          <p className="text-xs font-light text-muted-foreground">{user.email}</p>
         </DropdownMenuLabel>
 
         <DropdownMenuSeparator />

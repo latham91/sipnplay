@@ -13,7 +13,7 @@ export default function CoffeeModel() {
   });
   return (
     <group ref={group} position={[0.0, -0.2, 4]} rotation={[0, 0, 0.5]}>
-      <OrbitControls />
+      <OrbitControls enableZoom={false} enableRotate={false} />
       <primitive object={scene} />
     </group>
   );

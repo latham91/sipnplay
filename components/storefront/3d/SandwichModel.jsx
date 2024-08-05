@@ -14,7 +14,7 @@ export default function SandwichModel() {
 
   return (
     <group ref={group} position={[2, -1, 1]}>
-      <OrbitControls />
+      <OrbitControls enableZoom={false} enableRotate={false} />
       <primitive object={scene} />
     </group>
   );

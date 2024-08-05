@@ -10,10 +10,7 @@ const SceneOne = dynamic(() => import("@/components/storefront/3d/SceneOne"), {
 const SceneTwo = dynamic(() => import("@/components/storefront/3d/SceneTwo"), {
   ssr: false,
 });
-const SceneThree = dynamic(
-  () => import("@/components/storefront/3d/SceneThree"),
-  { ssr: false }
-);
+const SceneThree = dynamic(() => import("@/components/storefront/3d/SceneThree"), { ssr: false });
 
 async function getMenuItems() {
   const categories = ["Coffee", "Boba", "Sandwiches"]; // replace with your actual categories
@@ -22,7 +19,7 @@ async function getMenuItems() {
       where: {
         category: category,
       },
-      take: 4,
+      take: 10,
       select: {
         id: true,
         name: true,
@@ -74,18 +71,12 @@ export default async function Menu() {
               </h1>
             </div>
             <p className="text-xl font-bold md:text-2xl text-stone-400">
-              At Sip N Play, we offer a diverse and delicious menu designed to
-              enhance your board game experience. <br />
-              <span className="text-white">
-                Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲
-              </span>
+              At Sip N Play, we offer a diverse and delicious menu designed to enhance your board game experience. <br />
+              <span className="text-white">Check out below and get ready to enjoy a fantastic time! 🍔🍹🎲</span>
             </p>
             <div className="flex gap-3">
               <Button variant="green" asChild>
-                <Link
-                  href="https://www.exploretock.com/sipnplay"
-                  target="_blank"
-                >
+                <Link href="https://www.exploretock.com/sipnplay" target="_blank">
                   Reservations
                 </Link>
               </Button>

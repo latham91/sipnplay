@@ -7,8 +7,9 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const navItems = [
   { id: 0, name: "Events", path: "/dashboard/events" },
-  { id: 0, name: "Menu", path: "/dashboard/menu" },
-  { id: 0, name: "Games", path: "/dashboard/games" },
+  { id: 1, name: "Menu", path: "/dashboard/menu" },
+  { id: 2, name: "Games", path: "/dashboard/games" },
+  { id: 3, name: "Live Site", path: "/" },
 ];
 export default async function Navbar() {
   const { getUser } = getKindeServerSession();
